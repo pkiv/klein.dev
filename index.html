@@ -20,6 +20,9 @@
       background: #fdfdfb;
       margin: 0;
       padding: 12vh 24px 24px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-wrap: pretty;
     }
     main {
       max-width: 44rem;
@@ -29,6 +32,7 @@
       font-size: 1.5rem;
       font-weight: normal;
       margin: 0 0 0.25rem;
+      text-wrap: balance;
     }
     .bio {
       color: var(--muted);
@@ -51,8 +55,13 @@
       color: var(--link);
       text-decoration: none;
       border-bottom: 1px solid var(--rule);
+      transition-property: border-color;
+      transition-duration: 0.18s;
+      transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
     }
     a:hover { border-bottom-color: var(--text); }
+
+    .title { text-wrap: pretty; }
 
     /* Simple link lists (Elsewhere, Projects) */
     .links li { margin: 0.2rem 0; }
@@ -81,6 +90,7 @@
       font-size: 0.85rem;
       white-space: nowrap;
       text-align: right;
+      font-variant-numeric: tabular-nums;
     }
 
     /* Title · Date grid (Writing) */
@@ -118,10 +128,32 @@
       font-size: 0.8rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      transition-property: color, transform;
+      transition-duration: 0.18s;
+      transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
     }
     .viewall:hover { color: var(--text); }
+    .viewall:active { transform: scale(0.96); }
     .viewall .l-open::before { content: "+ "; }
     .viewall .l-close::before { content: "– "; }
+
+    /* Staggered fade-in when a section expands */
+    @media (prefers-reduced-motion: no-preference) {
+      .toggle:checked ~ .section-all li {
+        animation: item-in 0.4s cubic-bezier(0.2, 0, 0, 1) both;
+      }
+      .toggle:checked ~ .section-all li:nth-child(1) { animation-delay: 0.02s; }
+      .toggle:checked ~ .section-all li:nth-child(2) { animation-delay: 0.05s; }
+      .toggle:checked ~ .section-all li:nth-child(3) { animation-delay: 0.08s; }
+      .toggle:checked ~ .section-all li:nth-child(4) { animation-delay: 0.11s; }
+      .toggle:checked ~ .section-all li:nth-child(5) { animation-delay: 0.14s; }
+      .toggle:checked ~ .section-all li:nth-child(6) { animation-delay: 0.17s; }
+      .toggle:checked ~ .section-all li:nth-child(n+7) { animation-delay: 0.2s; }
+    }
+    @keyframes item-in {
+      from { opacity: 0; transform: translateY(4px); }
+      to   { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
