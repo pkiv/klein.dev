@@ -22,7 +22,7 @@
       padding: 12vh 24px 24px;
     }
     main {
-      max-width: 36rem;
+      max-width: 44rem;
       margin: 0 auto;
     }
     h1 {
@@ -40,20 +40,57 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted);
-      margin: 2rem 0 0.5rem;
+      margin: 2.5rem 0 0.5rem;
     }
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    li { margin: 0.15rem 0; }
     a {
       color: var(--link);
       text-decoration: none;
       border-bottom: 1px solid var(--rule);
     }
     a:hover { border-bottom-color: var(--text); }
+
+    /* Simple link lists (Elsewhere, Projects) */
+    .links li { margin: 0.2rem 0; }
+
+    /* Title + date on top, source beneath (Talks, Interviews) */
+    .media li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      column-gap: 1.25rem;
+      row-gap: 0;
+      align-items: baseline;
+      line-height: 1.3;
+      margin: 0.5rem 0;
+    }
+    .media .title  { grid-row: 1; grid-column: 1; }
+    .media .date   { grid-row: 1; grid-column: 2; }
+    .media .source {
+      grid-row: 2;
+      grid-column: 1 / -1;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .media .date,
+    .posts .date {
+      color: var(--muted);
+      font-size: 0.85rem;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    /* Title · Date grid (Writing) */
+    .posts li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.1rem 1.25rem;
+      align-items: baseline;
+      margin: 0.4rem 0;
+    }
   </style>
 </head>
 <body>
@@ -62,17 +99,105 @@
     <p class="bio">Founder &amp; CEO of <a href="https://browserbase.com">Browserbase</a>.</p>
 
     <h2>Elsewhere</h2>
-    <ul>
-      <li><a href="https://x.com/pkiv">X / Twitter</a></li>
+    <ul class="links">
+      <li><a href="https://x.com/pk_iv">X / Twitter</a></li>
       <li><a href="https://github.com/pkiv">GitHub</a></li>
       <li><a href="https://www.linkedin.com/in/paulkleiniv/">LinkedIn</a></li>
       <li><a href="mailto:paul@browserbase.com">Email</a></li>
     </ul>
 
     <h2>Projects</h2>
-    <ul>
+    <ul class="links">
       <li><a href="https://browserbase.com">Browserbase</a> — the web browser for AI agents</li>
       <li><a href="https://stagehand.dev">Stagehand</a> — the AI browser automation framework</li>
+    </ul>
+
+    <h2>Talks</h2>
+    <ul class="media">
+      <li><span class="source">TypeScript AI Conf</span><span class="title"><a href="https://www.youtube.com/watch?v=PCNMoJhq_Go">Building an AI-First Browser Automation Framework in TypeScript</a></span><span class="date">Nov 2025</span></li>
+      <li><span class="source">QCon San Francisco</span><span class="title"><a href="https://www.infoq.com/presentations/parallel-agents-production/">Automating the Web with MCP: Infra that Doesn't Break</a></span><span class="date">Nov 2025</span></li>
+      <li><span class="source">Madrona</span><span class="title"><a href="https://www.youtube.com/watch?v=wgK63_L-giM&amp;t=660">IA40 Winner Spotlight</a></span><span class="date">Oct 2025</span></li>
+      <li><span class="source">Zetta Ventures</span><span class="title"><a href="https://www.youtube.com/watch?v=nWx4p-daiWg">AI Native 2025 Lightning Talk</a></span><span class="date">Sep 2025</span></li>
+      <li><span class="source">AI Engineer World's Fair</span><span class="title"><a href="https://www.youtube.com/watch?v=YRGjll7uu5w">The Web Browser Is All You Need</a></span><span class="date">Jun 2025</span></li>
+      <li><span class="source">MCP Night</span><span class="title"><a href="https://www.youtube.com/watch?v=fvU1WdqFWfY">Connect AI Agents to Any Website Without APIs</a></span><span class="date">Jun 2025</span></li>
+      <li><span class="source">GitHub MCP Night</span><span class="title"><a href="https://www.youtube.com/watch?v=8E3NDdQ0Be4">How Browser MCP Servers Power AI Automation</a></span><span class="date">Apr 2025</span></li>
+      <li><span class="source">AI Builders Summit</span><span class="title"><a href="https://www.youtube.com/watch?v=9iWS-bMDCxE">Building Reliable Web Agents in Production</a></span><span class="date">Mar 2025</span></li>
+      <li><span class="source">Founders You Should Know</span><span class="title"><a href="https://www.youtube.com/watch?v=us_vS2EVDOA">Browserbase</a></span><span class="date">May 2024</span></li>
+    </ul>
+
+    <h2>Interviews</h2>
+    <ul class="media">
+      <li><span class="source">Big Chip Club</span><span class="title"><a href="https://www.youtube.com/watch?v=HKL92gQmF_A">The Future of Browser Agents</a></span><span class="date">Apr 2026</span></li>
+      <li><span class="source">Solo Founders</span><span class="title"><a href="https://www.youtube.com/watch?v=Eyuo1kG_APQ">From 500 Rejections to a $300M Company</a></span><span class="date">Mar 2026</span></li>
+      <li><span class="source">Hunters &amp; Unicorns</span><span class="title"><a href="https://www.youtube.com/watch?v=sEoHuc-lDSI">Why Most Startups Won't Survive the Hype</a></span><span class="date">Feb 2026</span></li>
+      <li><span class="source">Buyers x Builders</span><span class="title"><a href="https://www.youtube.com/watch?v=XkDgQrgHfDo">How Buyers Should Think About AI That Can Browse the Web</a></span><span class="date">Feb 2026</span></li>
+      <li><span class="source">re:Invent 2025</span><span class="title"><a href="https://www.youtube.com/watch?v=OFwXuQ1szi0">Build Self-Healing Browser Automation for AI</a></span><span class="date">Dec 2025</span></li>
+      <li><span class="source">Open Source Startup</span><span class="title"><a href="https://www.youtube.com/watch?v=qSn9Yh4s3Aw">Building the Browser for AI — the Browserbase Story</a></span><span class="date">Oct 2025</span></li>
+      <li><span class="source">Chasing Entropy</span><span class="title"><a href="https://www.youtube.com/watch?v=o4tgJz_4WcM">Chasing Entropy, Episode 025</a></span><span class="date">Oct 2025</span></li>
+      <li><span class="source">Omar Waseem</span><span class="title"><a href="https://www.youtube.com/watch?v=37bvJBmJ88g">Browserbase: The Company Building Browsers for AI</a></span><span class="date">Oct 2025</span></li>
+      <li><span class="source">Kleiner Perkins</span><span class="title"><a href="https://www.youtube.com/watch?v=1vBsXaQGbe8">Building Scalable Web Automation Infrastructure</a></span><span class="date">Sep 2025</span></li>
+      <li><span class="source">The New Stack</span><span class="title"><a href="https://www.youtube.com/watch?v=SBEfTwNqGik">The New Stack Agents</a></span><span class="date">Jul 2025</span></li>
+      <li><span class="source">Vercel Ship 2025</span><span class="title"><a href="https://www.youtube.com/watch?v=gTNlAfjhocc">Customer Panel with Stripe &amp; The Weather Company</a></span><span class="date">Jul 2025</span></li>
+      <li><span class="source">Notable Capital</span><span class="title"><a href="https://www.youtube.com/watch?v=o8INdADkreY">Building the Browser Infrastructure for AI Agents</a></span><span class="date">Jun 2025</span></li>
+      <li><span class="source">Sourcery</span><span class="title"><a href="https://www.youtube.com/watch?v=Xx_ylwTwStE">How Browserbase Raised $67.5M to Power AI Agents</a></span><span class="date">Jun 2025</span></li>
+      <li><span class="source">TBPN</span><span class="title"><a href="https://www.youtube.com/watch?v=AG2BHbaBrQI&amp;t=7553">Browserbase on TBPN</a></span><span class="date">Jun 2025</span></li>
+      <li><span class="source">The Secret Sauce</span><span class="title"><a href="https://www.youtube.com/watch?v=ZHPY5QLIm0o">AI Agents Can Do Things In Browsers</a></span><span class="date">May 2025</span></li>
+      <li><span class="source">Nasdaq</span><span class="title"><a href="https://www.nasdaq.com/videos/browserbase">Enterprise Tech30</a></span><span class="date">Apr 2025</span></li>
+      <li><span class="source">Newcomer</span><span class="title"><a href="https://www.youtube.com/watch?v=VhX-I-Z-UOc">Interview with Browserbase Founder Paul Klein</a></span><span class="date">Mar 2025</span></li>
+      <li><span class="source">Latent Space</span><span class="title"><a href="https://www.latent.space/p/browserbase">Open Operator, Serverless Browsers, and the Future of Computer-Using Agents</a></span><span class="date">Feb 2025</span></li>
+      <li><span class="source">Collective Intelligence</span><span class="title"><a href="https://www.youtube.com/watch?v=-HYc98UVe5U">Why Headless Browsers Are the Future of AI</a></span><span class="date">Jan 2025</span></li>
+      <li><span class="source">The Peel</span><span class="title"><a href="https://www.youtube.com/watch?v=_iudKFcmQbI">Infrastructure for AI Browsers</a></span><span class="date">Jan 2025</span></li>
+      <li><span class="source">ConTejas Code</span><span class="title"><a href="https://www.youtube.com/watch?v=605oYRtp5K4">How to Build Browsers for AI Agents</a></span><span class="date">Nov 2024</span></li>
+      <li><span class="source">AI Tinkerers</span><span class="title"><a href="https://www.youtube.com/watch?v=lvS4LRqykyA">Automate the Web with Stagehand</a></span><span class="date">Oct 2024</span></li>
+      <li><span class="source">Scaling DevTools</span><span class="title"><a href="https://www.youtube.com/watch?v=4C0JYaGIVE4">CEO &amp; Founder of Browserbase</a></span><span class="date">Oct 2024</span></li>
+      <li><span class="source">Omar Waseem</span><span class="title"><a href="https://www.youtube.com/watch?v=0Tc5C8ccDlM">How His AI Company Raised $6.5M in 90 Days</a></span><span class="date">Jun 2024</span></li>
+    </ul>
+
+    <h2>Writing</h2>
+    <ul class="posts">
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/get-in-the-token-path">Get in the token path</a></span><span class="date">Apr 2026</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/agi-isnt-the-hardest-part">AGI isn't the hardest part</a></span><span class="date">Feb 2026</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/looking-back-at-2025">Looking back at 2025</a></span><span class="date">Dec 2025</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/two-years-later-an-internet-browser">Two Years Later: An Internet Browser for AI</a></span><span class="date">Oct 2025</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/defining-category-defining-companies">Defining Category Defining Companies</a></span><span class="date">Aug 2025</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/building-bulletproof-businesses">Building Bulletproof Businesses</a></span><span class="date">Jun 2025</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/the-hard-truth-about-developer-tools">The Hard Truth About Developer Tools</a></span><span class="date">Apr 2025</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/product-led-growth-for-developers">Product Led Growth for Developers</a></span><span class="date">Feb 2025</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/2024-review-and-2025-optimism">2024 Review and 2025 Optimism</a></span><span class="date">Dec 2024</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/the-art-of-consequential-choices">The Art of Consequential Choices</a></span><span class="date">Nov 2024</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/perfect-ideas-vs-perfect-opportunities">Perfect Ideas vs Perfect Opportunities</a></span><span class="date">Aug 2024</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/so-you-want-to-start-a-saas-company">So you want to start a SaaS company?</a></span><span class="date">Jun 2024</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/the-agentic-future-of-the-internet">The Agentic Future of the Internet</a></span><span class="date">May 2024</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/i-quit-my-job-to-start-a-startup">I quit my job to start a startup (again)</a></span><span class="date">Mar 2024</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/value-based-software">Value-based Software</a></span><span class="date">Jan 2024</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/2024-predictions">2024 Predictions</a></span><span class="date">Dec 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/2023-year-in-review">2023 Year in Review</a></span><span class="date">Dec 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/selling-storage-compute-or-bandwidth">Selling storage, compute, or bandwidth</a></span><span class="date">Dec 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/an-internet-browser-for-ai">An Internet Browser for AI</a></span><span class="date">Nov 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/giving-thanks-to-our-community">Giving thanks to our community</a></span><span class="date">Nov 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/dont-be-a-knowledge-worker-be-a-knowledge">Don't be a knowledge worker. Be a knowledge creator.</a></span><span class="date">Nov 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/dark-patterns-for-defensibility">Dark Patterns for Defensibility</a></span><span class="date">Oct 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/developers-want-simpler-tools">Developers want simpler tools</a></span><span class="date">Oct 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/on-pivots">Pivoting</a></span><span class="date">Sep 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/hawk-hill-ventures-q2-and-q3-investments">Hawk Hill Ventures — Q2 &amp; Q3 Investments (2023)</a></span><span class="date">Sep 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/your-margin-is-my-opportunity">Your margin is my opportunity</a></span><span class="date">Aug 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/five-lessons-i-learned-from-selling">Five lessons I learned from selling my startup</a></span><span class="date">Aug 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/effective-accelerationism-aka-eacc">Effective Accelerationism (aka e/acc)</a></span><span class="date">Aug 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/from-pandemic-to-pivot-the-stream-2f7">From Pandemic to Pivot: The Stream Club Saga (Part 2)</a></span><span class="date">Jul 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/your-biggest-competitor-isnt-always">Your biggest competitor isn't always a company</a></span><span class="date">Jul 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/from-pandemic-to-pivot-the-stream">From Pandemic to Pivot: The Stream Club Saga</a></span><span class="date">Jun 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/the-state-of-early-stage-fundraising">The State of Early Stage Fundraising</a></span><span class="date">Jun 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/the-new-american-dream">The New American Dream</a></span><span class="date">May 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/nextjs-vs-the-world">Next.js vs the world</a></span><span class="date">May 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/rise-of-the-product-engineer">Rise of the Product Engineer</a></span><span class="date">Apr 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/hawk-hill-ventures-q1-2023-investments">Hawk Hill Ventures — Q1 2023 Investments</a></span><span class="date">Apr 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/the-markets-they-are-a-changin">The Markets, They Are A-Changin'</a></span><span class="date">Apr 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/selling-features-then-solutions">Selling features, then solutions</a></span><span class="date">Mar 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/large-language-models-chatgpt-and">Large Language Models, ChatGPT, and You</a></span><span class="date">Mar 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/revenge-of-the-python-developers">Revenge of the Python Developers</a></span><span class="date">Feb 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/build-software-like-walmart">Build software like Walmart</a></span><span class="date">Feb 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/the-power-of-product-platforms">The Power of Product Platforms</a></span><span class="date">Jan 2023</span></li>
+      <li><span class="title"><a href="https://memos.hawkhill.ventures/p/death-to-the-backend">Death to the backend</a></span><span class="date">Dec 2022</span></li>
     </ul>
   </main>
 </body>
